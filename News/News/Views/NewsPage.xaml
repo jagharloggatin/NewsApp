@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="News.Views.NewsPage">
+    <ContentPage.Content>
+
+            
+            
+            
+
+        <StackLayout Orientation="Vertical"
+                     >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackLayout     
+                        Grid.Row="1"
+                        Grid.Column="2">
+
+                        <Frame>
+
+
+                            <Label x:Name="pageInfo"/>
+
+                        </Frame>
+
+                    </StackLayout>
+
+
+
+
+                </Grid>
+
+
+
+
+
+
+
+                <ListView x:Name="groupedList" 
+                  Grid.Row="3" 
+                  Margin="20"
+                  VerticalOptions="FillAndExpand" 
+                  HorizontalOptions="FillAndExpand"
+                  ItemTapped="groupedList_ItemTapped"
+                  HasUnevenRows="False"
+                      BackgroundColor="White"
+                  >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Grid>
+                                <Frame BorderColor="Black"
+                                       CornerRadius="30"
+                                       HasShadow="False">
+                            <StackLayout Orientation="Horizontal"
+                                         HeightRequest="100">
+                                
+                                
+                                    <Image Source="{Binding UrlToImage}" 
+                                           WidthRequest="200"
+                                           Aspect="AspectFill"
+                                           />
+                                <StackLayout>
+
+                                            <Label Text="{Binding Title}" 
+                                       TextColor="#757575" 
+                                       FontSize="20" 
+                                       VerticalOptions="Center" 
+                                       Margin="20,0"
+                                       FontAttributes="Bold"
+                                                   />
+
+
+                                            <Label Text="{Binding Description}" 
+                                       TextColor="#757575" 
+                                       FontSize="15" 
+                                       FontAttributes="Italic"
+                                       Margin="20,0"/>
+
+
+                                            <Label Text="{Binding DateTime, StringFormat='{0:ddd HH\\:mm}'}" 
+                                       TextColor="#757575" 
+                                       FontSize="10" 
+                                       VerticalOptions="Center" 
+                                       FontAttributes="Bold"
+                                       Margin="20,0"/>
+
+                                    </StackLayout>
+
+                            </StackLayout>
+                            </Frame>
+                           </Grid>
+                        </ViewCell>
+                    </DataTemplate >
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

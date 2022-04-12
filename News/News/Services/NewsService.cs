@@ -14,26 +14,64 @@ namespace News.Services
 {
     public class NewsService
     {
+        ConcurrentDictionary<(string, NewsCategory), NewsGroup> _cacheCategory = new ConcurrentDictionary<(string, NewsCategory), NewsGroup>();
 
-        //Here is where you lift in your Service code from Part A
-/*
         public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
         {
+            string keyDate = DateTime.Now.ToString("yyyy-MM-dd:HH:mm");
+            NewsCategory keyCategory = category;
+            var key = (keyDate, keyCategory);
 
-#if UseNewsApiSample      
+            if (!_cacheCategory.TryGetValue(key, out var news))
+            {
+                news = new NewsGroup();
+                news = await ReadNewsAsync(category);
+                _cacheCategory[key] = news;
+            }
+            return news;
+        }
+
+        public async Task<NewsGroup> ReadNewsAsync(NewsCategory category)
+        {
             NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
+            NewsGroup news = new NewsGroup()
+            {
+                Category = category,
+            };
 
-#else
-            //https://newsapi.org/docs/endpoints/top-headlines
-            var uri = $"https://newsapi.org/v2/top-headlines?country=se&category={category}&apiKey={apiKey}";
+            news.Articles = nd.Articles.Select(x => new NewsItem
+            {
+                Title = x.Title,
+                Description = x.Description,
+                Url = x.Url,
+                DateTime = x.PublishedAt,
+                UrlToImage = x.UrlToImage,
+                Author = x.Author
+
+            }).ToList();
+
+            return news;
+
+            //Here is where you lift in your Service code from Part A
+            /*
+                    public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
+                    {
+
+            #if UseNewsApiSample      
+                        NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
+
+            #else
+                        //https://newsapi.org/docs/endpoints/top-headlines
+                        var uri = $"https://newsapi.org/v2/top-headlines?country=se&category={category}&apiKey={apiKey}";
 
 
-            //Recommend to use Newtonsoft Json Deserializer as it works best with Android
-            var webclient = new WebClient();
-            var json = await webclient.DownloadStringTaskAsync(uri);
-            NewsApiData nd = Newtonsoft.Json.JsonConvert.DeserializeObject<NewsApiData>(json);
+                        //Recommend to use Newtonsoft Json Deserializer as it works best with Android
+                        var webclient = new WebClient();
+                        var json = await webclient.DownloadStringTaskAsync(uri);
+                        NewsApiData nd = Newtonsoft.Json.JsonConvert.DeserializeObject<NewsApiData>(json);
 
-#endif
-*/
+            #endif
+            */
+        }
     }
 }
