@@ -131,7 +131,17 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="background.jpg" />
+    <Content Include="download.jpg" />
+    <Content Include="Options1.png" />
+    <Content Include="Options2.png" />
+    <Content Include="optionssymbol.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Refresh.png" />
+    <Content Include="skull1.jpg" />
+    <Content Include="skull2.png" />
+    <Content Include="skull3.png" />
+    <Content Include="skull4.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
