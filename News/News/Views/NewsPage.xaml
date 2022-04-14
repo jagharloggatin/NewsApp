@@ -28,6 +28,7 @@
                        Grid.Column="0"
                        TextColor="White"
                        FontSize="16"
+                       FontFamily="Segoe Script"
                        VerticalOptions="Center"
                        HorizontalOptions="Start"
                        Padding="10,5,0,0"
@@ -176,7 +177,6 @@
                                HorizontalOptions="Center"
                                 />
 
-
                         <Frame BackgroundColor="Gray"
                                Grid.Column="0"
                                Grid.Row="0"
@@ -200,10 +200,8 @@
                                Grid.Column="0"
                                VerticalOptions="End"
                                HorizontalOptions="Start"
-                               Padding="80,0,0,15"
+                               Padding="90,0,0,15"
                                />
-
-
                     </Grid>
                     
                 </ListView.Header>
