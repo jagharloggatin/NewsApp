@@ -1,8 +1,62 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="News.Views.ArticleView">
+             x:Class="News.Views.ArticleView"
+             BackgroundColor="Black">
     <ContentPage.Content>
-        <WebView Source="{Binding .}" />
+        <StackLayout>
+            <ProgressBar
+                Progress="0.2"
+                HorizontalOptions="FillAndExpand"
+                x:Name="progressBar"
+                IsVisible="True"
+                ProgressColor="Yellow"
+                />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+
+
+            <Label
+                    Text="Main Menu"
+                    TextColor="White"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontSize="16"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Padding="10,5,0,0"/>
+
+            <ImageButton Source="mainmenu.png"
+                             x:Name="optionsButton2"
+                             HeightRequest="40"
+                             WidthRequest="20"
+                             Grid.Row="0"
+                         Clicked="optionsButton2_Clicked"
+                             Grid.Column="1"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Start"
+                             Padding="0,5,0,0"
+                             />
+            </Grid>
+
+            <WebView Source="{Binding .}" 
+                     x:Name="webView"
+                     HeightRequest="1000"
+                     WidthRequest="1000"
+                     VerticalOptions="FillAndExpand"
+                     Navigating="webView_Navigating"
+                     Navigated="webView_Navigated"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

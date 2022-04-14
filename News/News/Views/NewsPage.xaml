@@ -97,7 +97,6 @@
                 </ProgressBar>
             </Grid>
 
-
             <ListView x:Name="groupedList" 
                   Grid.Row="2" 
                   Margin="20"
@@ -180,11 +179,11 @@
                         <Frame BackgroundColor="Gray"
                                Grid.Column="0"
                                Grid.Row="0"
-                               Scale="0.5"
+                               Scale="0.7"
                                CornerRadius="30"
                                VerticalOptions="End"
                                HorizontalOptions="Start"
-                               Opacity="0.6"
+                               Opacity="0.7"
                                Padding="0,0,0,20"
                                WidthRequest="200"
                                HeightRequest="25">
@@ -194,13 +193,13 @@
                         <Label Text="Top News"
                                TextColor="White"
                                FontSize="12"
-                               Scale="0.7"
+                               Scale="0.8"
                                FontAttributes="Bold"
                                Grid.Row="0"
                                Grid.Column="0"
                                VerticalOptions="End"
                                HorizontalOptions="Start"
-                               Padding="90,0,0,15"
+                               Padding="80,0,0,15"
                                />
                     </Grid>
                     

@@ -24,6 +24,25 @@ namespace News.Views
                 Url = HttpUtility.UrlDecode(Url)
             };
         }
- 
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            await progressBar.ProgressTo(0.9, 900, Easing.SpringIn);
+        }
+
+        private void webView_Navigating(object sender, WebNavigatingEventArgs e)
+        {
+            progressBar.IsVisible = true;
+        }
+
+        private void webView_Navigated(object sender, WebNavigatedEventArgs e)
+        {
+            progressBar.IsVisible = false;
+        }
+
+        private async void optionsButton2_Clicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PopToRootAsync();
+        }
     }
 }

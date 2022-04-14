@@ -64,9 +64,6 @@ namespace News.Views
             if (optionsButton.IsPressed)
                 ImageButton_Clicked(sender, e);
 
-            if (action != null)
-                await LoadNews();
-
             if (action.Contains("Throw an error"))
             {
                 try
