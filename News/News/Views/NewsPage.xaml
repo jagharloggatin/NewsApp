@@ -110,6 +110,7 @@
                   VerticalScrollBarVisibility="Never"
                   >
                 <ListView.Header>
+                    
 
                     <Grid>
 
@@ -192,7 +193,7 @@
 
                         <Label Text="Top News"
                                TextColor="White"
-                               FontSize="12"
+                               FontSize="14"
                                Scale="0.8"
                                FontAttributes="Bold"
                                Grid.Row="0"

@@ -142,7 +142,8 @@
     <Content Include="skull1.jpg" />
     <Content Include="skull2.png" />
     <Content Include="skull3.png" />
-    <Content Include="skull4.png" />
+    <Content Include="skull4.jpg" />
+    <Content Include="skull5.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
