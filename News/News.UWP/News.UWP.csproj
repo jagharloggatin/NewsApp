@@ -131,19 +131,29 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="author.png" />
     <Content Include="background.jpg" />
+    <Content Include="business.jpg" />
     <Content Include="download.jpg" />
+    <Content Include="entertainment.png" />
+    <Content Include="general.png" />
+    <Content Include="health.jpg" />
+    <Content Include="health.png" />
+    <Content Include="help.png" />
     <Content Include="mainmenu.png" />
     <Content Include="Options1.png" />
     <Content Include="Options2.png" />
     <Content Include="optionssymbol.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Refresh.png" />
+    <Content Include="science.png" />
     <Content Include="skull1.jpg" />
     <Content Include="skull2.png" />
     <Content Include="skull3.png" />
     <Content Include="skull4.jpg" />
     <Content Include="skull5.png" />
+    <Content Include="sports.png" />
+    <Content Include="technology.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -156,6 +166,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.1.0</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.13" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />

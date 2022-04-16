@@ -4,13 +4,11 @@
              x:Class="News.Views.NewsPage"
              BackgroundColor="Black">
     <ContentPage.Content>
-
         <StackLayout>
-
 
             <Grid>
                 <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -19,19 +17,21 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>  <!--Last grid column will be placed at the end -->
+                    <ColumnDefinition Width="Auto"/> <!--Last grid column -->
                 </Grid.ColumnDefinitions>
 
                 <Label Text="BravoNews™"
                        Grid.Row="0"
-                       Grid.Column="0"
+                       Grid.Column="8"
                        TextColor="White"
                        FontSize="16"
                        FontFamily="Segoe Script"
                        VerticalOptions="Center"
                        HorizontalOptions="Start"
-                       Padding="10,5,0,0"
+                       Padding="0,15,20,0"
                                />
 
                 <Label
@@ -42,7 +42,7 @@
                        FontSize="16"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       Padding="10,5,0,0"/>
+                       Padding="10,15,0,0"/>
 
                 <ImageButton Source="Options2.png"
                              x:Name="optionsButton"
@@ -51,7 +51,7 @@
                              Grid.Row="0"
                              Grid.Column="2"
                              VerticalOptions="Center"
-                             Padding="0,5,0,0"
+                             Padding="0,15,0,0"
                              Clicked="ImageButton_Clicked"
                              >
                 </ImageButton>
@@ -64,7 +64,7 @@
                        FontSize="16"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       Padding="10,5,0,0"/>
+                       Padding="10,15,0,0"/>
 
                 <ImageButton Source="Refresh.png"
                              HeightRequest="40"
@@ -72,8 +72,28 @@
                              Grid.Row="0"
                              Grid.Column="4"
                              VerticalOptions="Center"
-                             Padding="0,5,0,0"
+                             Padding="0,15,0,0"
                              Clicked="ImageButton_Clicked_1"
+                             >
+                </ImageButton>
+
+                <Label
+                    Text="Help"
+                     TextColor="White"
+                    Grid.Row="0"
+                    Grid.Column="5"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Padding="10,15,0,0"/>
+
+                <ImageButton Source="help.png"
+                             HeightRequest="30"
+                             WidthRequest="15"
+                             Grid.Row="0"
+                             Grid.Column="6"
+                             VerticalOptions="Center"
+                             Padding="0,15,0,0"
                              >
                 </ImageButton>
 
@@ -110,7 +130,6 @@
                   VerticalScrollBarVisibility="Never"
                   >
                 <ListView.Header>
-                    
 
                     <Grid>
 
@@ -138,12 +157,11 @@
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
                                    Grid.Row="0"
+                                    Clicked="firstPageUrl_Clicked"
                                Grid.Column="0"
                                    x:Name="firstPageUrl"/>
                             </Frame>
                         </StackLayout>
-
-
 
                         <Label x:Name="firstPageTitle"
                                TextColor="White"
@@ -162,7 +180,7 @@
                                Grid.Row="2"
                                Grid.Column="0"
                                VerticalOptions="End"
-                               HorizontalOptions="Start"
+                               HorizontalOptions="End"
                                    Padding="18,0,0,0"
                                 />
 
@@ -203,7 +221,6 @@
                                Padding="80,0,0,15"
                                />
                     </Grid>
-                    
                 </ListView.Header>
 
                 <ListView.ItemTemplate>
@@ -243,9 +260,7 @@
                                     </Frame>
                                 </StackLayout>
 
-
                                 <StackLayout Grid.Column="1">
-                                    
                                     
                                     <Label Text="{Binding Title}" 
                                            Grid.Column="1"
@@ -265,8 +280,6 @@
 
                                 </StackLayout>
 
-
-
                                 <Label Text="{Binding DateTime, StringFormat='{0:ddd HH\\:mm}'}" 
                                        TextColor="White" 
                                        FontSize="10" 
@@ -276,7 +289,6 @@
                                        FontAttributes="Bold"
                                        HorizontalOptions="End"
                                        Margin="20,0"/>
-
                             </Grid>
                         </ViewCell>
                 </DataTemplate>

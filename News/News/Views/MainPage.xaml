@@ -3,18 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:News.Views" 
              x:Class="News.Views.MainPage"
-             BackgroundColor="White">
+             BackgroundColor="Black"
+            BarTextColor="White"
+            SelectedTabColor="White"
+            >
     <!--Pages can be added as references or inline-->
 
     <TabbedPage.Children>
-
         <views:AboutPage />
-        <views:NewsPage Title="Science"/>
-        <views:NewsPage Title="Entertainment"/>
-        <views:NewsPage Title="General"/>
-        <views:NewsPage Title="Health"/>
-        <views:NewsPage Title="Sports"/>
-        <views:NewsPage Title="Technology"/>
-
+        <views:NewsPage Title="Science" IconImageSource="science.png"/>
+        <views:NewsPage Title="Entertainment" IconImageSource="entertainment.png"/>
+        <views:NewsPage Title="General" IconImageSource="general.png"/>
+        <views:NewsPage Title="Health" IconImageSource="health.png"/>
+        <views:NewsPage Title="Sports" IconImageSource="sports.png"/>
+        <views:NewsPage Title="Technology" IconImageSource="technology.png"/>
+        <views:NewsPage Title="Business" IconImageSource="business.jpg"/>
     </TabbedPage.Children>
 </TabbedPage>

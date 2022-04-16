@@ -14,5 +14,9 @@ namespace News.Views
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }

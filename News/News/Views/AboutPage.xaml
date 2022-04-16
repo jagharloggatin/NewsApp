@@ -3,29 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="News.Views.AboutPage"
              Title="Author Page"
-             BackgroundImageSource="skull4.jpg"
+             IconImageSource="author.png"
              >
 
     <StackLayout>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-
-            <Label Text="WHITE"
-                   Grid.Row="3"
+        <Label Text="Made by Jonathan Bravo"
                    FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
                    TextColor="White"
                    FontSize="Large"/>
-        </Grid>
-        
     </StackLayout>
 </ContentPage>
