@@ -133,6 +133,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="author.png" />
     <Content Include="background.jpg" />
+    <Content Include="backgroundnature.jpg" />
     <Content Include="business.jpg" />
     <Content Include="download.jpg" />
     <Content Include="entertainment.png" />
@@ -140,6 +141,8 @@
     <Content Include="health.jpg" />
     <Content Include="health.png" />
     <Content Include="help.png" />
+    <Content Include="lugerpress.png" />
+    <Content Include="lugerpress2.png" />
     <Content Include="mainmenu.png" />
     <Content Include="Options1.png" />
     <Content Include="Options2.png" />
@@ -168,6 +171,9 @@
   <ItemGroup>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.13" />

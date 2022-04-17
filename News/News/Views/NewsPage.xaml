@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="News.Views.NewsPage"
+             x:Name="NewsPageReference"
              BackgroundColor="Black">
     <ContentPage.Content>
         <StackLayout>
@@ -77,26 +78,6 @@
                              >
                 </ImageButton>
 
-                <Label
-                    Text="Help"
-                     TextColor="White"
-                    Grid.Row="0"
-                    Grid.Column="5"
-                       FontSize="16"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       Padding="10,15,0,0"/>
-
-                <ImageButton Source="help.png"
-                             HeightRequest="30"
-                             WidthRequest="15"
-                             Grid.Row="0"
-                             Grid.Column="6"
-                             VerticalOptions="Center"
-                             Padding="0,15,0,0"
-                             >
-                </ImageButton>
-
             </Grid>
             <Grid 
                 BackgroundColor="Black"
@@ -130,7 +111,6 @@
                   VerticalScrollBarVisibility="Never"
                   >
                 <ListView.Header>
-
                     <Grid>
 
                         <Grid.RowDefinitions>
@@ -146,6 +126,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
+
                         <StackLayout Padding="0">
                             <Frame Grid.Column="0"
                                        BackgroundColor="Black"
@@ -157,22 +138,33 @@
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
                                    Grid.Row="0"
-                                    Clicked="firstPageUrl_Clicked"
                                Grid.Column="0"
-                                   x:Name="firstPageUrl"/>
+                                   x:Name="firstPageUrl"
+                                    Clicked="firstPageUrl_Clicked"/>
                             </Frame>
+                            
+
                         </StackLayout>
 
                         <Label x:Name="firstPageTitle"
                                TextColor="White"
                                FontSize="20"
-                                       Grid.Row="2"
+                               Grid.Row="2"
+                               Grid.Column="0"
                                FontAttributes="Bold"
                                HorizontalOptions="Start"
-                               VerticalOptions="Center"
-                               Margin="20"/>
+                               VerticalOptions="End"
+                               Margin="20">
+                            <Label.GestureRecognizers>
+                                
+                                <TapGestureRecognizer
+                                    BindingContext="{x:Reference NewsPageReference}"
+                                    Command="{Binding TitleClicked}"
+                                                      />
+                            </Label.GestureRecognizers>
+                        </Label>
 
-                            <Label x:Name="firstPageDateTime"
+                        <Label x:Name="firstPageDateTime"
                                TextColor="White"
                                FontSize="12"
                                Scale="0.7"
@@ -187,7 +179,7 @@
                         <Label x:Name="firstPageAuthor"
                                TextColor="White"
                                FontSize="12"
-                               Scale="0.7"
+                               Scale="1"
                                FontAttributes="Bold"
                                Grid.Row="2"
                                Grid.Column="0"
@@ -198,15 +190,14 @@
                         <Frame BackgroundColor="Gray"
                                Grid.Column="0"
                                Grid.Row="0"
-                               Scale="0.7"
+                               Scale="1"
                                CornerRadius="30"
                                VerticalOptions="End"
                                HorizontalOptions="Start"
-                               Opacity="0.7"
+                               Opacity="0.5"
                                Padding="0,0,0,20"
                                WidthRequest="200"
                                HeightRequest="25">
-
                         </Frame>
 
                         <Label Text="Top News"
@@ -220,7 +211,9 @@
                                HorizontalOptions="Start"
                                Padding="80,0,0,15"
                                />
+
                     </Grid>
+                    
                 </ListView.Header>
 
                 <ListView.ItemTemplate>

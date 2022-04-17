@@ -17,7 +17,7 @@ namespace News.Services
     {
         ConcurrentDictionary<(string, NewsCategory), NewsGroup> _cacheCategory = new ConcurrentDictionary<(string, NewsCategory), NewsGroup>();
         HttpClient httpClient = new HttpClient();
-        readonly string apiKey = "d318329c40734776a014f9d9513e14ae";
+        readonly string apiKey = "337fd7db1cf54b71b33059dd3c402160";
         public async Task<NewsGroup> GetNewsAsync(NewsCategory category)
         {
             string keyDate = DateTime.Now.ToString("yyyy-MM-dd:HH:mm");

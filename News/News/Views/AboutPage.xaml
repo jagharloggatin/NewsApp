@@ -2,16 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="News.Views.AboutPage"
-             Title="Author Page"
+             Title="Author"
              IconImageSource="author.png"
+             BackgroundColor="Black"
              >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        
+ 
+        <Label Text="BravoNews™"
+               FontAttributes="Bold"
+               Grid.Row="2"
+               Grid.Column="3"
+               HorizontalOptions="CenterAndExpand"
+               FontFamily="Segoe Script"
+               VerticalOptions="CenterAndExpand"
+               TextColor="White"
+               FontSize="Large"/>
 
-    <StackLayout>
-        <Label Text="Made by Jonathan Bravo"
-                   FontAttributes="Bold"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand"
-                   TextColor="White"
-                   FontSize="Large"/>
-    </StackLayout>
+        <Label Text="Created by Jonathan Bravo"
+               FontAttributes="Bold"
+               Grid.Row="3"
+               Grid.Column="3"
+               FontFamily="Segoe Script"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand"
+               TextColor="White"
+               FontSize="Small"/>
+
+    </Grid>
 </ContentPage>

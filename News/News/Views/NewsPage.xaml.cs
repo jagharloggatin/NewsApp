@@ -1,10 +1,9 @@
 ﻿using News.Models;
 using News.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +15,15 @@ namespace News.Views
     {
         NewsService service;
 
+        //If you click the first image it will direct you to the webpage
+        string firstPageClicked { get; set; }
 
+        //If you click the first Title it will direct you to the webpage
+        public ICommand TitleClicked => new Command(OnFirstTitleClicked);
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewsPage"/> class.
+        /// </summary>
         public NewsPage()
         {
             InitializeComponent();
@@ -31,7 +38,6 @@ namespace News.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             MainThread.BeginInvokeOnMainThread(async () => { await LoadNews(); });
         }
 
@@ -55,6 +61,7 @@ namespace News.Views
                         firstPageDateTime.Text = t1.Result.Articles[0].DateTime.ToString("hh:mm - d");
                         firstPageAuthor.Text = t1.Result.Articles[0].Author;
                         firstPageTitle.Text = t1.Result.Articles[0].Title;
+                        firstPageClicked = t1.Result.Articles[0].Url;
                     }
                     catch (Exception e)
                     {
@@ -85,10 +92,8 @@ namespace News.Views
         {
             var action = await DisplayActionSheet("Which Option would you like to select?", "Cancel", null, "Slow Internet", "Throw an error");
 
-            if (optionsButton.IsPressed)
-                ImageButton_Clicked(sender, e);
 
-            if (action.Contains("Throw an error"))
+            if (action.Contains("Throw an error") || optionsButton.IsPressed)
             {
                 try
                 {
@@ -113,7 +118,6 @@ namespace News.Views
             await LoadNews();
             slowedInternet.IsRunning = false;
         }
-
         /// <summary>
         /// Handles the 1 event of the ImageButton_Clicked control.
         /// </summary>
@@ -127,15 +131,22 @@ namespace News.Views
             refreshProgress.IsVisible = false;  
             await LoadNews();
         }
-
         /// <summary>
         /// Handles the Clicked event of the firstPageUrl control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-        private void firstPageUrl_Clicked(object sender, EventArgs e)
+        private async void firstPageUrl_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new ArticleView(firstPageClicked));
+        }
 
+        /// <summary>
+        /// Directs the user to the page from the first title clicked.
+        /// </summary>
+        private async void OnFirstTitleClicked()
+        {
+            await Navigation.PushAsync(new ArticleView(firstPageClicked));
         }
     }
 }
